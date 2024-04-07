@@ -1,9 +1,11 @@
-{ autoreconfHook
-, lib
-, pkg-config
-, stdenv
-, fetchFromGitLab
-, gitUpdater
+{
+  lib,
+  stdenv,
+  autoreconfHook,
+  fetchFromGitLab,
+  gitUpdater,
+  cmake,
+  pkg-config,
 }:
 stdenv.mkDerivation (finalAttrs: {
   pname = "ethercat";
@@ -18,7 +20,10 @@ stdenv.mkDerivation (finalAttrs: {
 
   separateDebugInfo = true;
 
-  nativeBuildInputs = [ autoreconfHook pkg-config ];
+  nativeBuildInputs = [
+    autoreconfHook
+    pkg-config
+  ];
 
   configureFlags = [
     "--enable-userlib=yes"
