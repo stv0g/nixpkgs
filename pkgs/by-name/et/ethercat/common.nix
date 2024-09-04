@@ -5,6 +5,7 @@
   gitUpdater,
   autoreconfHook,
   pkg-config,
+  withDocs ? false,
 }:
 stdenv.mkDerivation (finalAttrs: {
   pname = "ethercat";
@@ -15,8 +16,8 @@ stdenv.mkDerivation (finalAttrs: {
     repo = "ethercat";
     rev = "refs/tags/${finalAttrs.version}";
     hash = "sha256-Ki8WUKUW4O9SNFTVIXrWpL6suCu7j2nLQtpWVsUoiK0=";
-    fetchSubmodules = true;
-    leaveDotGit = true;
+    fetchSubmodules = withDocs;
+    leaveDotGit = withDocs;
   };
 
   meta = {
