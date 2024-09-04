@@ -2,7 +2,7 @@
   callPackage,
   lib,
   autoreconfHook,
-  systemd,
+  systemdMinimal,
   doxygen,
   fig2dev,
   python3,
@@ -31,7 +31,7 @@ let
 in
 common.overrideAttrs (
   finalAttrs: previousAttrs: {
-    buildInputs = [ systemd ];
+    buildInputs = [ systemdMinimal ];
 
     nativeBuildInputs =
       previousAttrs.nativeBuildInputs
